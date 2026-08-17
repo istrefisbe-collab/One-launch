@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ONE v0.6</title>
+<style>
+:root{--b:#080b15;--p:#121829;--p2:#171f32;--t:#f5f7ff;--m:#a8b2c8;--l:#2f3d5b;--a:#7259ea}
+*{box-sizing:border-box}
+body{margin:0;background:var(--b);color:var(--t);font-family:Arial,sans-serif}
+header{padding:16px;border-bottom:1px solid var(--l);font-size:24px;font-weight:900}
+.online{float:right;color:#8ff0c4;font-size:15px}
+.wrap{max-width:900px;margin:auto;padding:18px}
+h1{font-size:44px;margin:20px 0 8px}.purple{color:#9b88ff}
+.muted{color:var(--m);line-height:1.5}
+nav{display:flex;gap:8px;overflow:auto;margin:20px 0}
+button{background:var(--p2);color:white;border:1px solid var(--l);border-radius:11px;padding:11px;font-weight:700}
+.primary{background:var(--a)}
+.page{display:none}.page.active{display:block}
+.panel{background:var(--p);border:1px solid var(--l);border-radius:16px;padding:16px}
+.chat{height:360px;overflow:auto;background:#0b1020;border:1px solid var(--l);border-radius:13px;padding:10px}
+.msg{max-width:85%;padding:11px;border-radius:12px;margin:9px 0;white-space:pre-wrap}
+.ai{background:#1c263d}.user{background:#5d48c6;margin-left:auto}
+textarea,input,select{width:100%;background:#0d1322;color:white;border:1px solid var(--l);border-radius:11px;padding:12px;margin-top:8px}
+.row{display:flex;gap:8px;margin-top:8px}
+.notice{margin-top:12px;padding:11px;background:#10231d;border-left:4px solid #2ed39a;border-radius:9px}
+.card{background:var(--p2);padding:14px;border-radius:12px;margin:10px 0}
+</style>
+</head>
+<body>
+
+<header>◉ ONE <span class="online">ONLINE v0.6 • AI</span></header>
+
+<div class="wrap">
+<h1>Ena aplikacija.<br><span class="purple">Veliko možnosti.</span></h1>
+<p class="muted">ONE — AI pomočnik za vsakdan.</p>
+
+<nav>
+<button onclick="show('home')">Domov</button>
+<button onclick="show('assistant')">Pomočnik</button>
+<button onclick="show('rem')">Opomniki</button>
+<button onclick="show('privacy')">Zasebnost</button>
+<button onclick="show('lang')">Jeziki</button>
+<button onclick="show('pricing')">Paketi</button>
+</nav>
+
+<section id="home" class="page active panel">
+<h2>Nadzorna plošča</h2>
+<div class="card"><b>🤖 ONE AI</b><p class="muted">Pravi AI bo povezan prek varnega strežnika.</p></div>
+<div class="notice">🔒 API ključ ni shranjen v tej spletni strani.</div>
+</section>
+
+<section id="assistant" class="page panel">
+<h2>ONE pomočnik</h2>
+<div id="chat" class="chat">
+<div class="msg ai">Pozdravljen! Sem ONE. Vprašaj me karkoli.</div>
+</div>
+<textarea id="q" rows="3" placeholder="Napiši vprašanje ..."></textarea>
+<div class="row">
+<button id="sendBtn" class="primary" onclick="send()">Pošlji</button>
+</div>
+<p id="status" class="muted"></p>
+</section>
+
+<section id="rem" class="page panel">
+<h2>Opomniki</h2>
+<input id="remText" placeholder="Kaj naj te spomnim?">
+<input id="remTime" type="datetime-local">
+<button class="primary" style="margin-top:10px" onclick="addReminder()">Dodaj</button>
+<div id="remList"></div>
+</section>
+
+<section id="privacy" class="page panel">
+<h2>Zasebnost</h2>
+<div class="notice">ONE pošlje tvoje vprašanje strežniku samo, ko pritisneš Pošlji.</div>
+<button style="margin-top:12px" onclick="clearData()">Izbriši lokalne podatke</button>
+</section>
+
+<section id="lang" class="page panel">
+<h2>Jezik</h2>
+<select id="language">
+<option>Slovenščina</option>
+<option>Hrvatski</option>
+<option>Srpski</option>
+<option>Deutsch</option>
+<option>English</option>
+<option>Italiano</option>
+</select>
+</section>
+
+<section id="pricing" class="page panel">
+<h2>Paketi</h2>
+<div class="card"><b>START — 1 €</b></div>
+<div class="card"><b>PLUS — 4,99 €</b></div>
+<div class="card"><b>PRO — 9,99 €</b></div>
+<p class="muted">Plačila za zdaj niso vključena.</p>
+</section>
+</div>
+
+<script>
+const $=x=>document.querySelector(x);
+
+function show(id){
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+ $('#'+id).classList.add('active');
+}
+
+function msg(text,type){
+ const d=document.createElement('div');
+ d.className='msg '+type;
+ d.textContent=text;
+ $('#chat').appendChild(d);
+ $('#chat').scrollTop=$('#chat').scrollHeight;
+}
+
+async function send(){
+ const text=$('#q').value.trim();
+ if(!text)return;
+
+ msg(text,'user');
+ $('#q').value='';
+ $('#sendBtn').disabled=true;
+ $('#status').textContent='ONE razmišlja ...';
+
+ try{
+   const r=await fetch('/api/chat',{
+     method:'POST',
+     headers:{'Content-Type':'application/json'},
+     body:JSON.stringify({
+       message:text,
+       language:$('#language').value
+     })
+   });
+
+   const data=await r.json();
+
+   if(!r.ok) throw new Error(data.error || 'Napaka povezave');
+
+   msg(data.reply,'ai');
+ }catch(e){
+   msg('AI še ni povezan: '+e.message,'ai');
+ }finally{
+   $('#sendBtn').disabled=false;
+   $('#status').textContent='';
+ }
+}
+
+function addReminder(){
+ const t=$('#remText').value.trim();
+ const w=$('#remTime').value;
+ if(!t)return;
+
+ let r=JSON.parse(localStorage.getItem('one_rem')||'[]');
+ r.push({t,w});
+ localStorage.setItem('one_rem',JSON.stringify(r));
+ $('#remText').value='';
+ renderReminders();
+}
+
+function renderReminders(){
+ let r=JSON.parse(localStorage.getItem('one_rem')||'[]');
+ $('#remList').innerHTML=r.map(x=>
+   '<div class="card"><b>'+x.t+'</b><br><span class="muted">'+(x.w||'Brez časa')+'</span></div>'
+ ).join('');
+}
+
+function clearData(){
+ localStorage.removeItem('one_rem');
+ renderReminders();
+}
+
+$('#q').addEventListener('keydown',e=>{
+ if(e.key==='Enter'&&!e.shiftKey){
+   e.preventDefault();
+   send();
+ }
+});
+
+renderReminders();
+</script>
+</body>
+</html>

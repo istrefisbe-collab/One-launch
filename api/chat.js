@@ -1,74 +1,54 @@
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   try {
-    const { message } = req.body || {};
+    const { message, language = "Slovenščina" } = req.body || {};
 
-    if (!message) {
-      return res.status(400).json({ error: "Missing message" });
+    if (!message || !String(message).trim()) {
+      return res.status(400).json({ error: "Napiši vprašanje." });
     }
 
-    const text = String(message).toLowerCase();
-    let module = "ONE CORE";
+    const text = String(message).trim();
 
-    if (/preved|translate|jezik|nemšč|angle|italij|hrva|srb/.test(text))
-      module = "TRANSLATE";
-    else if (/potov|hotel|let|flight|travel|izlet|japan/.test(text))
-      module = "TRAVEL";
-    else if (/posel|business|strank|ponudb|podjet|oglas/.test(text))
-      module = "BUSINESS";
-    else if (/denar|finance|stroš|prihod|invest|račun/.test(text))
-      module = "FINANCE";
-    else if (/nujn|emergency|polic|gasil|rešil|112/.test(text))
-      module = "EMERGENCY";
-    else if (/projekt|project|nalog|datotek/.test(text))
-      module = "PROJECTS";
+    // Če pozneje dodamo AI ključ, bo ONEVYO uporabljal pravi AI.
+    const apiKey = process.env.AI_API_KEY;
+    const apiUrl = process.env.AI_API_URL;
+    const model = process.env.AI_MODEL;
 
-    const token = process.env.AI_GATEWAY_API_KEY;
-
-    if (!token) {
-      return res.status(500).json({ error: "AI Gateway key ni nastavljen" });
-    }
-
-    const response = await fetch(
-      "https://ai-gateway.vercel.sh/v1/chat/completions",
-      {
+    if (apiKey && apiUrl && model) {
+      const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: "openai/gpt-5.6-sol",
+          model,
           messages: [
             {
               role: "system",
               content:
-                `You are ONEVYO, an all-in-one AI assistant. ` +
-                `Answer in the user's language unless asked to translate. ` +
-                `Selected module: ${module}.`,
+                `You are ONEVYO, a helpful global all-in-one AI assistant. ` +
+                `Answer clearly and practically. User language: ${language}.`,
             },
-            { role: "user", content: message },
+            {
+              role: "user",
+              content: text,
+            },
           ],
         }),
-      }
-    );
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      return res.status(response.status).json({
-        error: data?.error?.message || "AI Gateway error",
       });
-    }
 
-    return res.status(200).json({
-      reply: data?.choices?.[0]?.message?.content || "Ni odgovora.",
-      module,
-    });
-  } catch (error) {
-    return res.status(500).json({ error: error.message });
-  }
-}
+      const data = await response.json();
+
+      if (response.ok) {
+        const reply =
+          data?.choices?.[0]?.message?.content ||
+          data?.output_text ||
+          data?.response;
+
+        if (reply) {
+          return res.status(

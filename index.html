@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ONE v0.6</title>
+<title>ONEVYO v0.6</title>
 <style>
 :root{--b:#080b15;--p:#121829;--p2:#171f32;--t:#f5f7ff;--m:#a8b2c8;--l:#2f3d5b;--a:#7259ea}
 *{box-sizing:border-box}
@@ -29,11 +29,11 @@ textarea,input,select{width:100%;background:#0d1322;color:white;border:1px solid
 </head>
 <body>
 
-<header>◉ ONE <span class="online">ONLINE v0.6 • AI</span></header>
+<header>◉ ONEVYO <span class="online">ONLINE v0.6 • AI</span></header>
 
 <div class="wrap">
 <h1>Ena aplikacija.<br><span class="purple">Veliko možnosti.</span></h1>
-<p class="muted">ONE — AI pomočnik za vsakdan.</p>
+<p class="muted">ONEVYO — AI pomočnik za vsakdan.</p>
 
 <nav>
 <button onclick="show('home')">Domov</button>
@@ -46,14 +46,14 @@ textarea,input,select{width:100%;background:#0d1322;color:white;border:1px solid
 
 <section id="home" class="page active panel">
 <h2>Nadzorna plošča</h2>
-<div class="card"><b>🤖 ONE AI</b><p class="muted">Pravi AI bo povezan prek varnega strežnika.</p></div>
+<div class="card"><b>🤖 ONEVYO AI</b><p class="muted">Pravi AI bo povezan prek varnega strežnika.</p></div>
 <div class="notice">🔒 API ključ ni shranjen v tej spletni strani.</div>
 </section>
 
 <section id="assistant" class="page panel">
-<h2>ONE pomočnik</h2>
+<h2>ONEVYO pomočnik</h2>
 <div id="chat" class="chat">
-<div class="msg ai">Pozdravljen! Sem ONE. Vprašaj me karkoli.</div>
+<div class="msg ai">Pozdravljen! Sem ONEVYO. Vprašaj me karkoli.</div>
 </div>
 <textarea id="q" rows="3" placeholder="Napiši vprašanje ..."></textarea>
 <div class="row">
@@ -72,7 +72,7 @@ textarea,input,select{width:100%;background:#0d1322;color:white;border:1px solid
 
 <section id="privacy" class="page panel">
 <h2>Zasebnost</h2>
-<div class="notice">ONE pošlje tvoje vprašanje strežniku samo, ko pritisneš Pošlji.</div>
+<div class="notice">ONEVYO pošlje tvoje vprašanje strežniku samo, ko pritisneš Pošlji.</div>
 <button style="margin-top:12px" onclick="clearData()">Izbriši lokalne podatke</button>
 </section>
 
@@ -120,7 +120,7 @@ async function send(){
  msg(text,'user');
  $('#q').value='';
  $('#sendBtn').disabled=true;
- $('#status').textContent='ONE razmišlja ...';
+ $('#status').textContent='ONEVYO razmišlja ...';
 
  try{
    const r=await fetch('/api/chat',{

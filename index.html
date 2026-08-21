@@ -1,2 +1,501 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#030712">
+<title>ONEVYO — Your All-in-One World</title>
 
-<!doctype html><html lang="sl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050814"><title>ONEVYO — Your All-in-One World</title><style>:root{--bg:#050814;--line:rgba(103,175,255,.24);--txt:#f5f8ff;--muted:#9badc8;--cyan:#2ad8ff;--purple:#9a69ff;--pink:#ff58cf;--green:#71f7c4}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#123469 0,transparent 32%),linear-gradient(#030714,#070b18 56%,#02040a);color:var(--txt);font-family:Inter,system-ui,Arial;min-height:100vh}.app{max-width:520px;margin:auto;padding:18px 16px 110px}.top{display:flex;justify-content:space-between;align-items:center}.brand{font-weight:800;letter-spacing:.18em}.status{font-size:10px;color:var(--green);border:1px solid rgba(113,247,196,.25);padding:7px 9px;border-radius:20px}.world{margin:20px 0 14px;height:160px;border:1px solid var(--line);border-radius:28px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 62%,#47c6ff 0 8%,#236ac3 9% 22%,#102a64 23% 38%,transparent 39%),radial-gradient(circle at 39% 54%,rgba(136,245,170,.75) 0 4%,transparent 5%),radial-gradient(circle at 60% 50%,rgba(136,245,170,.62) 0 5%,transparent 6%),linear-gradient(145deg,rgba(11,26,55,.9),rgba(8,14,30,.8));box-shadow:0 20px 50px rgba(0,0,0,.35)}.world:after{content:'DAY WORLD';position:absolute;right:16px;bottom:13px;font-size:9px;letter-spacing:.24em;color:#a8c8f0}.hero{text-align:center;padding:6px 0 16px}.hero h1{font-size:42px;letter-spacing:.18em;margin:0}.hero p{margin:8px 0;color:#b9c6db;letter-spacing:.13em;font-size:12px}.core{border:1px solid var(--line);background:linear-gradient(145deg,rgba(12,24,49,.88),rgba(8,14,31,.82));border-radius:26px;padding:18px;box-shadow:0 18px 50px rgba(0,0,0,.32)}.orb{width:82px;height:82px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#08101e 0 42%,transparent 43%),conic-gradient(var(--pink),var(--purple),var(--cyan),var(--pink));box-shadow:0 0 34px rgba(94,122,255,.45)}.orb span{font-weight:800;font-size:11px;letter-spacing:.11em}.core h2{text-align:center;margin:0 0 6px}.core .hint{text-align:center;color:var(--muted);font-size:12px;margin-bottom:15px}.chat{height:185px;overflow:auto;border:1px solid rgba(126,177,255,.15);background:rgba(3,9,21,.52);border-radius:18px;padding:12px}.msg{max-width:86%;padding:10px 12px;border-radius:15px;margin:7px 0;font-size:12px;line-height:1.45}.ai{background:rgba(31,57,100,.55);border:1px solid rgba(93,173,255,.15)}.me{margin-left:auto;background:linear-gradient(100deg,rgba(89,92,255,.45),rgba(197,69,227,.38));border:1px solid rgba(193,111,255,.22)}.tag{display:inline-block;margin-top:6px;font-size:9px;letter-spacing:.13em;color:var(--cyan)}.inputrow{display:grid;grid-template-columns:48px 1fr 48px;gap:8px;margin-top:10px}.inputrow button,.inputrow input{border:1px solid rgba(113,172,255,.22);background:#0a1327;color:white;border-radius:15px}.inputrow input{padding:0 13px;min-width:0}.inputrow button{height:48px;font-size:19px}.mic.live{box-shadow:0 0 0 5px rgba(255,80,196,.15),0 0 24px rgba(255,80,196,.35);border-color:rgba(255,80,196,.7)}.mods{display:flex;gap:7px;overflow:auto;padding:12px 0 2px}.chip{white-space:nowrap;border:1px solid var(--line);background:rgba(10,21,43,.72);padding:8px 10px;border-radius:99px;font-size:10px;color:#cfe5ff}.night{margin-top:14px;height:120px;border-radius:25px;border:1px solid var(--line);position:relative;overflow:hidden;background:radial-gradient(circle at 20% 45%,#ffd662 0 1px,transparent 2px),radial-gradient(circle at 35% 38%,#ff8f5a 0 1px,transparent 2px),radial-gradient(circle at 52% 60%,#ffd662 0 1px,transparent 2px),radial-gradient(circle at 70% 42%,#ff7fc5 0 1px,transparent 2px),radial-gradient(circle at 85% 58%,#ffd662 0 1px,transparent 2px),radial-gradient(ellipse at 50% 55%,#17366e 0 22%,#0a1734 23% 40%,#02050d 41%);background-size:27px 27px,31px 31px,23px 23px,33px 33px,29px 29px,100% 100%}.night:after{content:'NIGHT WORLD';position:absolute;right:16px;bottom:12px;font-size:9px;letter-spacing:.24em;color:#8598b8}.note{font-size:10px;color:#7285a3;text-align:center;margin-top:10px}.bottom{position:fixed;left:50%;transform:translateX(-50%);bottom:12px;width:min(488px,calc(100vw - 24px));height:70px;border-radius:24px;background:rgba(6,12,27,.92);backdrop-filter:blur(18px);border:1px solid rgba(116,179,255,.18);display:grid;grid-template-columns:repeat(5,1fr);align-items:center}.bottom button{border:0;background:transparent;color:#8190aa;font-size:9px}.bottom .active{color:var(--cyan)}@media(max-width:390px){.world{height:145px}.hero h1{font-size:36px}.chat{height:170px}}</style></head><body><main class="app"><div class="top"><div class="brand">◉ ONEVYO</div><div class="status">● ONLINE</div></div><section class="world"></section><section class="hero"><h1>ONEVYO</h1><p>Your All-in-One World</p></section><section class="core"><div class="orb"><span>ONE</span></div><h2>ONE Mode AI</h2><div class="hint">Napiši ali povej, kaj želiš. ONEVYO izbere pravi modul.</div><div id="chat" class="chat"><div class="msg ai">Pozdravljen. Povej mi, kaj želiš narediti.<div class="tag">ONE CORE READY</div></div></div><div class="inputrow"><button id="mic" class="mic" aria-label="Mikrofon">🎙</button><input id="input" placeholder="Npr. prevedi to v nemščino…"><button id="send" aria-label="Pošlji">➤</button></div><div class="mods"><span class="chip">Translate</span><span class="chip">Travel</span><span class="chip">Business</span><span class="chip">Finance</span><span class="chip">Emergency</span><span class="chip">Projects</span></div></section><section class="night"></section><div class="note">Prototype routing + voice input. AI backend follows next.</div></main><nav class="bottom"><button class="active">⌂<br>HOME</button><button>◈<br>EXPLORE</button><button>◉<br>ONE</button><button>♧<br>NOTIFY</button><button>○<br>PROFILE</button></nav><script>const input=document.getElementById('input'),chat=document.getElementById('chat'),send=document.getElementById('send'),mic=document.getElementById('mic');function route(t){t=t.toLowerCase();if(/preved|translate|jezik|nemšč|angle|italij|hrva|srb/.test(t))return'TRANSLATE';if(/potov|hotel|let|flight|travel|izlet|japonsk|japan/.test(t))return'TRAVEL';if(/posel|business|strank|ponudb|podjet|oglas/.test(t))return'BUSINESS';if(/denar|finance|stroš|prihod|invest|račun/.test(t))return'FINANCE';if(/nujn|emergency|polic|gasil|rešil|112/.test(t))return'EMERGENCY';if(/projekt|project|nalog|datotek/.test(t))return'PROJECTS';return'ONE CORE';}function add(cls,text,tag){const d=document.createElement('div');d.className='msg '+cls;d.textContent=text;if(tag){const s=document.createElement('div');s.className='tag';s.textContent=tag;d.appendChild(s)}chat.appendChild(d);chat.scrollTop=chat.scrollHeight}function submit(){const t=input.value.trim();if(!t)return;add('me',t);input.value='';const m=route(t);setTimeout(()=>add('ai','Razumem. Aktiviral bi modul '+m+'. Naslednji korak bo ta ukaz poslal pravemu AI modelu in vrnil dejanski odgovor.',m+' SELECTED'),220)}send.onclick=submit;input.addEventListener('keydown',e=>{if(e.key==='Enter')submit()});const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(SR){const r=new SR();r.lang='sl-SI';r.interimResults=false;r.onstart=()=>mic.classList.add('live');r.onend=()=>mic.classList.remove('live');r.onresult=e=>{input.value=e.results[0][0].transcript;submit()};mic.onclick=()=>r.start()}else{mic.onclick=()=>add('ai','Glasovni vnos v tem brskalniku ni podprt. Uporabi Chrome ali napiši ukaz.','VOICE FALLBACK')}</script></body></html>
+<style>
+:root{
+  --bg:#030712;
+  --line:rgba(89,168,255,.25);
+  --txt:#f7f9ff;
+  --muted:#9eacc8;
+  --cyan:#27d7ff;
+  --blue:#327cff;
+  --purple:#8d62ff;
+  --pink:#ff55d4;
+  --green:#62f3bd;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  color:var(--txt);
+  font-family:Inter,system-ui,Arial,sans-serif;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 0,rgba(24,103,194,.30),transparent 28%),
+    radial-gradient(circle at 20% 75%,rgba(111,54,190,.16),transparent 32%),
+    linear-gradient(180deg,#041020,#030712 52%,#010309);
+}
+.app{
+  max-width:520px;
+  margin:auto;
+  padding:20px 16px 110px;
+}
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  letter-spacing:.22em;
+}
+.mini-logo{
+  width:24px;height:24px;border-radius:50%;
+  background:radial-gradient(circle,#37cfff 0 22%,#276cc9 24% 48%,#0d2b68 50%);
+  box-shadow:0 0 18px rgba(39,215,255,.45);
+}
+.status{
+  color:var(--green);
+  border:1px solid rgba(98,243,189,.28);
+  padding:8px 12px;
+  border-radius:99px;
+  font-size:11px;
+  box-shadow:inset 0 0 18px rgba(98,243,189,.05);
+}
+
+/* DAY WORLD */
+.day-card{
+  position:relative;
+  height:245px;
+  margin:28px 0 20px;
+  border-radius:30px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 6%,rgba(90,190,255,.28),transparent 32%),
+    linear-gradient(145deg,#071b39,#050b1b 68%);
+  box-shadow:0 24px 70px rgba(0,0,0,.42);
+}
+.sun{
+  position:absolute;
+  width:36px;height:36px;
+  left:50%;top:11px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:#fffbd6;
+  box-shadow:
+    0 0 18px #fff,
+    0 0 38px #70d7ff,
+    0 0 75px rgba(60,170,255,.75);
+  z-index:4;
+}
+.earth-day{
+  position:absolute;
+  width:360px;height:360px;
+  left:50%;top:62px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 37% 30%,rgba(255,255,255,.7) 0 1%,transparent 2%),
+    radial-gradient(circle at 38% 35%,#57c8ff 0 15%,transparent 16%),
+    radial-gradient(circle at 56% 44%,#65c77f 0 7%,transparent 8%),
+    radial-gradient(circle at 42% 44%,#5bbd72 0 9%,transparent 10%),
+    radial-gradient(circle at 63% 52%,#b5a56b 0 8%,transparent 9%),
+    radial-gradient(circle at 52% 50%,#257dc7 0 45%,#0d3c7b 66%,#031a3c 100%);
+  box-shadow:
+    inset -60px -50px 95px rgba(0,0,0,.58),
+    0 0 25px #37bfff,
+    0 0 75px rgba(52,138,255,.48);
+}
+.earth-day:before{
+  content:"";
+  position:absolute;
+  width:150px;height:75px;
+  left:34px;top:74px;
+  border-radius:60% 40% 55% 45%;
+  background:#64bf72;
+  transform:rotate(-18deg);
+  box-shadow:
+    110px 45px 0 -18px #89b666,
+    145px 105px 0 -32px #b69c61,
+    30px 120px 0 -33px #66b777;
+  opacity:.88;
+}
+.earth-day:after{
+  content:"";
+  position:absolute;inset:0;
+  border-radius:50%;
+  background:
+    repeating-linear-gradient(0deg,transparent 0 31px,rgba(111,194,255,.08) 32px),
+    repeating-linear-gradient(90deg,transparent 0 45px,rgba(111,194,255,.06) 46px);
+}
+.world-label{
+  position:absolute;
+  right:18px;
+  bottom:16px;
+  z-index:5;
+  font-size:10px;
+  letter-spacing:.27em;
+  color:#bdd9ff;
+}
+.world-label b{color:#ffdd68}
+
+/* HERO */
+.hero{text-align:center;padding:4px 0 20px}
+.hero h1{
+  margin:0;
+  font-size:45px;
+  letter-spacing:.20em;
+  text-shadow:0 0 28px rgba(66,174,255,.18);
+}
+.hero p{
+  margin:9px 0 0;
+  color:#bdc9dc;
+  font-size:13px;
+  letter-spacing:.13em;
+}
+
+/* ONE MODE */
+.core{
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:19px;
+  background:
+    radial-gradient(circle at 50% 0,rgba(67,112,255,.10),transparent 45%),
+    linear-gradient(145deg,rgba(12,25,52,.92),rgba(5,11,27,.92));
+  box-shadow:0 22px 60px rgba(0,0,0,.35);
+}
+.orb{
+  width:92px;height:92px;
+  margin:0 auto 14px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:
+    radial-gradient(circle,#050b18 0 42%,transparent 44%),
+    conic-gradient(var(--pink),var(--purple),var(--cyan),var(--pink));
+  box-shadow:
+    0 0 30px rgba(79,136,255,.45),
+    0 0 60px rgba(174,74,255,.20);
+}
+.orb span{
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.core h2{
+  text-align:center;
+  margin:0 0 7px;
+  font-size:28px;
+}
+.hint{
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.45;
+  margin-bottom:16px;
+}
+.chat{
+  min-height:180px;
+  max-height:260px;
+  overflow:auto;
+  padding:13px;
+  border-radius:20px;
+  background:rgba(1,6,17,.55);
+  border:1px solid rgba(102,169,255,.15);
+}
+.msg{
+  max-width:88%;
+  padding:11px 13px;
+  border-radius:17px;
+  margin:8px 0;
+  font-size:13px;
+  line-height:1.45;
+}
+.ai{
+  background:rgba(28,58,105,.55);
+  border:1px solid rgba(84,165,255,.18);
+}
+.me{
+  margin-left:auto;
+  background:linear-gradient(100deg,rgba(63,101,255,.48),rgba(177,62,221,.42));
+  border:1px solid rgba(190,104,255,.22);
+}
+.tag{
+  margin-top:7px;
+  color:var(--cyan);
+  font-size:10px;
+  letter-spacing:.14em;
+}
+.inputrow{
+  display:grid;
+  grid-template-columns:50px 1fr 50px;
+  gap:8px;
+  margin-top:11px;
+}
+.inputrow input,
+.inputrow button{
+  border:1px solid rgba(105,174,255,.24);
+  background:#09152b;
+  color:white;
+  border-radius:16px;
+}
+.inputrow input{
+  min-width:0;
+  padding:0 14px;
+}
+.inputrow button{
+  height:50px;
+  font-size:19px;
+}
+.mic.live{
+  border-color:var(--pink);
+  box-shadow:0 0 25px rgba(255,85,212,.45);
+}
+.mods{
+  display:flex;
+  gap:7px;
+  overflow:auto;
+  margin-top:12px;
+  scrollbar-width:none;
+}
+.chip{
+  white-space:nowrap;
+  border:1px solid var(--line);
+  border-radius:99px;
+  padding:8px 11px;
+  background:rgba(11,25,51,.74);
+  color:#d5e8ff;
+  font-size:10px;
+}
+
+/* NIGHT WORLD */
+.night-card{
+  position:relative;
+  height:170px;
+  margin-top:18px;
+  border-radius:28px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 12% 32%,#ffd36a 0 1px,transparent 2px),
+    radial-gradient(circle at 20% 48%,#ffae55 0 1px,transparent 2px),
+    radial-gradient(circle at 28% 39%,#ffe28b 0 1px,transparent 2px),
+    radial-gradient(circle at 36% 57%,#ffb968 0 1px,transparent 2px),
+    radial-gradient(circle at 47% 43%,#ffe493 0 1px,transparent 2px),
+    radial-gradient(circle at 58% 53%,#ffc36f 0 1px,transparent 2px),
+    radial-gradient(circle at 69% 38%,#ffe28b 0 1px,transparent 2px),
+    radial-gradient(circle at 80% 52%,#ffb762 0 1px,transparent 2px),
+    radial-gradient(circle at 90% 35%,#ffd675 0 1px,transparent 2px),
+    radial-gradient(ellipse at 50% 125%,#183a75 0 38%,#07152f 39% 62%,#01040b 63%);
+  background-size:
+    28px 28px,32px 32px,25px 25px,31px 31px,29px 29px,
+    27px 27px,33px 33px,30px 30px,26px 26px,100% 100%;
+  box-shadow:inset 0 30px 65px rgba(0,0,0,.20);
+}
+.night-card:before{
+  content:"";
+  position:absolute;
+  width:370px;height:210px;
+  border-radius:50%;
+  left:50%;top:54px;
+  transform:translateX(-50%);
+  border-top:1px solid rgba(59,153,255,.28);
+  box-shadow:0 -12px 35px rgba(44,128,255,.12);
+}
+.night-label{
+  position:absolute;
+  left:17px;
+  bottom:16px;
+  font-size:10px;
+  letter-spacing:.27em;
+  color:#aac7ef;
+}
+.night-label b{color:#7ca9ff}
+
+.note{
+  text-align:center;
+  font-size:10px;
+  color:#70819e;
+  margin:11px 0;
+}
+
+/* BOTTOM NAV */
+.bottom{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:12px;
+  width:min(488px,calc(100vw - 24px));
+  height:72px;
+  border-radius:25px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  align-items:center;
+  background:rgba(5,12,28,.93);
+  backdrop-filter:blur(18px);
+  border:1px solid rgba(103,177,255,.18);
+  box-shadow:0 18px 50px rgba(0,0,0,.45);
+}
+.bottom button{
+  border:0;
+  background:transparent;
+  color:#8190ab;
+  font-size:9px;
+}
+.bottom .active{color:var(--cyan)}
+
+@media(max-width:390px){
+  .day-card{height:225px}
+  .earth-day{width:330px;height:330px}
+  .hero h1{font-size:37px}
+}
+</style>
+</head>
+
+<body>
+<main class="app">
+
+<div class="top">
+  <div class="brand"><span class="mini-logo"></span>ONEVYO</div>
+  <div class="status">● ONLINE</div>
+</div>
+
+<section class="day-card">
+  <div class="sun"></div>
+  <div class="earth-day"></div>
+  <div class="world-label"><b>☀</b> DAY WORLD</div>
+</section>
+
+<section class="hero">
+  <h1>ONEVYO</h1>
+  <p>Your All-in-One World</p>
+</section>
+
+<section class="core">
+  <div class="orb"><span>ONE</span></div>
+  <h2>ONE Mode AI</h2>
+  <div class="hint">Napiši ali povej, kaj želiš. ONEVYO izbere pravi modul.</div>
+
+  <div id="chat" class="chat">
+    <div class="msg ai">
+      Pozdravljen. Povej mi, kaj želiš narediti.
+      <div class="tag">ONE CORE READY</div>
+    </div>
+  </div>
+
+  <div class="inputrow">
+    <button id="mic" class="mic">🎙</button>
+    <input id="input" placeholder="Npr. prevedi to v nemščino…">
+    <button id="send">➤</button>
+  </div>
+
+  <div class="mods">
+    <span class="chip">Translate</span>
+    <span class="chip">Travel</span>
+    <span class="chip">Business</span>
+    <span class="chip">Finance</span>
+    <span class="chip">Emergency</span>
+    <span class="chip">Projects</span>
+  </div>
+</section>
+
+<section class="night-card">
+  <div class="night-label"><b>☾</b> NIGHT WORLD</div>
+</section>
+
+<div class="note">ONEVYO • One platform. One vision. Your world.</div>
+
+</main>
+
+<nav class="bottom">
+  <button class="active">⌂<br>HOME</button>
+  <button>◇<br>EXPLORE</button>
+  <button>◉<br>ONE</button>
+  <button>♧<br>NOTIFY</button>
+  <button>○<br>PROFILE</button>
+</nav>
+
+<script>
+const input=document.getElementById('input');
+const chat=document.getElementById('chat');
+const send=document.getElementById('send');
+const mic=document.getElementById('mic');
+
+function route(t){
+  t=t.toLowerCase();
+  if(/preved|translate|jezik|nemšč|angle|italij|hrva|srb/.test(t))return'TRANSLATE';
+  if(/potov|hotel|let|flight|travel|izlet|japonsk|japan/.test(t))return'TRAVEL';
+  if(/posel|business|strank|ponudb|podjet|oglas/.test(t))return'BUSINESS';
+  if(/denar|finance|stroš|prihod|invest|račun/.test(t))return'FINANCE';
+  if(/nujn|emergency|polic|gasil|rešil|112/.test(t))return'EMERGENCY';
+  if(/projekt|project|nalog|datotek/.test(t))return'PROJECTS';
+  return'ONE CORE';
+}
+
+function add(cls,text,tag){
+  const d=document.createElement('div');
+  d.className='msg '+cls;
+  d.textContent=text;
+
+  if(tag){
+    const s=document.createElement('div');
+    s.className='tag';
+    s.textContent=tag;
+    d.appendChild(s);
+  }
+
+  chat.appendChild(d);
+  chat.scrollTop=chat.scrollHeight;
+}
+
+function submit(){
+  const t=input.value.trim();
+  if(!t)return;
+
+  add('me',t);
+  input.value='';
+
+  const module=route(t);
+
+  setTimeout(()=>{
+    add(
+      'ai',
+      'Razumem. Aktiviral bi modul '+module+'. ONEVYO je pripravljen na naslednji korak.',
+      module+' SELECTED'
+    );
+  },220);
+}
+
+send.onclick=submit;
+
+input.addEventListener('keydown',e=>{
+  if(e.key==='Enter')submit();
+});
+
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+
+if(SR){
+  const r=new SR();
+  r.lang='sl-SI';
+  r.interimResults=false;
+
+  r.onstart=()=>mic.classList.add('live');
+  r.onend=()=>mic.classList.remove('live');
+
+  r.onresult=e=>{
+    input.value=e.results[0][0].transcript;
+    submit();
+  };
+
+  mic.onclick=()=>r.start();
+}else{
+  mic.onclick=()=>{
+    add(
+      'ai',
+      'Glasovni vnos v tem brskalniku ni podprt. Uporabi Chrome ali napiši ukaz.',
+      'VOICE FALLBACK'
+    );
+  };
+}
+</script>
+
+</body>
+</html>
